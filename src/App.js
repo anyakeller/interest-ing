@@ -1,21 +1,31 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import { Home, SecondPage } from "./routes";
+import { Switch, Route } from "react-router-dom";
+import { Navbar, Header } from "./components";
+import { PageDetailsProvider } from "./utils/GlobalState";
+import { PageData, PageOrder } from "./utils/PageData";
 
 function App() {
   return (
-    <Router basename={`${process.env.PUBLIC_URL}/`}>
+    <PageDetailsProvider>
       <div className="App">
         <Navbar />
+        <Header />
         <div className="container-sm my-3">
           <Switch>
-            <Route exact={true} path="/" component={Home}></Route>
-            <Route path="/secondPage" component={SecondPage}></Route>
+            {PageOrder.map((path, index) => {
+              const page = PageData[path];
+              return (
+                <Route
+                  exact
+                  path={page.pathname}
+                  component={page.component}
+                  key={index}></Route>
+              );
+            })}
           </Switch>
         </div>
       </div>
-    </Router>
+    </PageDetailsProvider>
   );
 }
 
