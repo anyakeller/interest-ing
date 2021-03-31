@@ -1,5 +1,6 @@
 {
   "name": "interest-ing",
+  "homepage": "https://anyakeller.github.io/interest-ing",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
