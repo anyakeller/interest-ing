@@ -5,7 +5,7 @@ function Header(props) {
   const [state, _] = usePageDetailsContext();
   return (
     <header>
-      <h1>{"Header"}</h1>
+      <h1>{state.currentPage.pageHeader || "Header"}</h1>
     </header>
   );
 }

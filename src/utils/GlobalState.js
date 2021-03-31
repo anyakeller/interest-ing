@@ -22,7 +22,11 @@ const reducer = (state, action) => {
 const PageDetailsProvider = ({ value = {}, ...props }) => {
   let location = useLocation();
   const [state, dispatch] = useReducer(reducer, {
-    currentPage: location.pathname,
+    currentPage: {
+      pathname: "",
+      pageHeader: "",
+      component: null
+    },
     loading: false
   });
 
