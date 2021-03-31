@@ -9,6 +9,7 @@ const { Provider } = PageDetailsContext;
 
 const reducer = (state, action) => {
   switch (action.type) {
+    // set the current page data
     case "SET_CURRENT_PAGE":
       return Object.assign({}, state, {
         currentPage: PageData[action.currentPath]
@@ -30,6 +31,7 @@ const PageDetailsProvider = ({ value = {}, ...props }) => {
     loading: false
   });
 
+  // update the current page whenever it changes
   React.useEffect(() => {
     if (state.currentPage.pathname === location.pathname) return;
     dispatch({ type: "SET_CURRENT_PAGE", currentPath: location.pathname });

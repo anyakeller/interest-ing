@@ -1,12 +1,10 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
+import { Navbar, Header } from "./components";
 import { PageDetailsProvider } from "./utils/GlobalState";
 import { PageData, PageOrder } from "./utils/PageData";
 
 function App() {
- 
   return (
     <PageDetailsProvider>
       <div className="App">

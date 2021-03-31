@@ -1,4 +1,6 @@
 import { Home, SecondPage } from "../routes";
+
+// easily change all the routes
 export const PageData = {
   "/": {
     pathname: "/",
